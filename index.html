@@ -132,7 +132,7 @@ document.getElementById('emailCaptureForm').addEventListener('submit', function(
   .then(data => {
     console.log('Success:', data);
     // Hide the email input and show a success message
-    formGroup.innerHTML = '<p>Congratulations! Your journey starts now. Check your email. (make sure to check spam)</p>';
+    formGroup.innerHTML = '<p>Congratulations! Your journey starts now. Check your email for confirmation. (make sure to check spam)</p>';
   })
   .catch((error) => {
     console.error('Error:', error);
