@@ -111,33 +111,10 @@ document.getElementById('emailCaptureForm').addEventListener('submit', function(
   event.preventDefault(); // Prevent the default form submission
 
   var emailInput = document.querySelector('[name="email"]'); // Get the email input element
-  var formGroup = document.querySelector('.form-group'); // Get the form group div
   var email = emailInput.value; // Get the email value
 
-  // Replace 'YOUR_BUBBLE_API_ENDPOINT' with your actual Bubble API endpoint
-  var bubbleApiEndpoint = 'https://inner-compass.bubbleapps.io/api/1.1/wf/sign-up'; 
-
-  // Send the email to your Bubble app
-  fetch(bubbleApiEndpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      // Add any other headers required by your Bubble app's API
-    },
-    body: JSON.stringify({
-      email: email // Make sure the body matches the expected format of your Bubble app's API
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-    // Hide the email input and show a success message
-    formGroup.innerHTML = '<p>Congratulations! Your journey starts now. Click the link in the email we just sent you.(make sure to check spam!)</p>';
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-    // Handle errors, such as displaying an error message to the user
-  });
+  // Redirect to the new URL with email parameter
+  window.location.href = 'https://app.theinnercompass.ai/?email=' + encodeURIComponent(email);
 });
 </script>
 </html>
